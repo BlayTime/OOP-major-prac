@@ -28,4 +28,5 @@ int main(){
 	map[1][1].playerLocation = true;
 	cout << map[1][1].is_player_in_room(1,1) << endl;
 	cout << map[1][0].is_player_in_room(1,0) << endl;
+	cout << map[2][0].is_player_in_room(2,0) << endl;
 }
