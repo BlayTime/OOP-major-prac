@@ -6,8 +6,13 @@
 class room
 {
 public:
-	room(int index, bool trap, bool player);
+	room();
+	room(int index, bool trapYN, bool playerYN);
+	int get_room_num();
+	bool is_player_in_room(int index);
 	int room_index;
 	bool isTrap;
 	bool playerLocation;
-}
+};
+
+#endif

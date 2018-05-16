@@ -8,3 +8,4 @@ class game
 	void test();
 };
 
+#endif
