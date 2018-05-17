@@ -9,8 +9,9 @@ class player: public entity{
 public:
 	player();
 	player(string InName);
-	void player_death();
+	bool player_death();
 	int get_health();
+	bool player_victory();
 };
 
 #endif

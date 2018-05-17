@@ -1,6 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 #include <string>
+
 using namespace std;
 
 class entity{
@@ -13,7 +14,7 @@ public:
 	entity();
 	entity(string InName);
 	string get_name();
-	virtual int damage();
+	virtual void damage();
 };
 
 #endif

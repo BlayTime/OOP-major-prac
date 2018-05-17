@@ -22,10 +22,9 @@ trap::trap(string InName) : entity(InName){
 
 //if the player enters a room with the trap in it, they both take damage and the trap destroys itself
 void trap::destroy_trap() : entity(){
-	if(If_player_in_room == true){
-		player.damage();
-		trap.damage();
+	if(trap.health == 0){
 		delete::trap;
+		cout << "Trap removed" << endl;
 	}
 }
 
@@ -33,4 +32,3 @@ void trap::destroy_trap() : entity(){
 int trap::get_ID(){
 	return currentID;
 }
-

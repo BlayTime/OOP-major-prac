@@ -1,0 +1,52 @@
+What do you do?
+You walk north and slam your face into a wall. Perhaps you should try going through a door?
+You look around the room. This is room: 0, 0
+You see a solid stone wall on north side and a door on the south side, and
+a door on the east side and a solid stone wall on the west side.
+What do you do?
+You move through the eastern door.
+You look around the room. This is room: 1, 0
+You see a solid stone wall on north side and a door on the south side, and
+a door on the east side and a door on the west side.
+You see a bear trap and promptly step in it because we've yet to implement disarming.
+Your health is at 2
+What do you do?
+You move through the southern door.
+You look around the room. This is room: 1, 1
+You see a door on the north side and a door on the south side, and
+a door on the east side and a door on the west side.
+What do you do?
+You move through the western door.
+You look around the room. This is room: 0, 1
+You see a door on the north side and a door on the south side, and
+a door on the east side and a solid stone wall on the west side.
+What do you do?
+You move through the northern door.
+You look around the room. This is room: 0, 0
+You see a solid stone wall on north side and a door on the south side, and
+a door on the east side and a solid stone wall on the west side.
+What do you do?
+You move through the eastern door.
+You look around the room. This is room: 1, 0
+You see a solid stone wall on north side and a door on the south side, and
+a door on the east side and a door on the west side.
+You see a bear trap and promptly step in it because we've yet to implement disarming.
+Your health is at 1
+What do you do?
+You move through the eastern door.
+You look around the room. This is room: 2, 0
+You see a solid stone wall on north side and a door on the south side, and
+a solid stone wall on the east side and a door on the west side.
+What do you do?
+You walk east and slam your face into a wall. Perhaps you should try going through a door?
+You look around the room. This is room: 2, 0
+You see a solid stone wall on north side and a door on the south side, and
+a solid stone wall on the east side and a door on the west side.
+What do you do?
+You move through the western door.
+You look around the room. This is room: 1, 0
+You see a solid stone wall on north side and a door on the south side, and
+a door on the east side and a door on the west side.
+You see a bear trap and promptly step in it because we've yet to implement disarming.
+Your health is at 0
+You are dead. GAME OVER.

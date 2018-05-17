@@ -20,8 +20,6 @@ string entity::get_name(){
 }
 
 //function decreases health of entities
-int entity::damage(){
+void entity::damage(){
 	health -= 1;
 }
-
-

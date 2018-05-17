@@ -2,6 +2,7 @@
 #include "player.h"
 #include <string>
 #include <iostream>
+#include <cstdio>
 using namespace std;
 
 //default constructor
@@ -17,20 +18,14 @@ player::player(string InName) : entity(InName){
 }
 
 //if player's health reaches 0, the player "dies" and the game ends
-void player::player_death(){
+bool player::player_death(){
 	if(health == 0){
 		cout << "You are dead. GAME OVER." << endl;
 		//quit/leave the program
-		exit(EXIT_SUCCESS);
-
-		/*alt.
-		void death(){
-			cout << "You are dead. GAME OVER." << endl;
-		}
-		atexit(death);
-		return 0;
-		*/
-		
+		return true;
+	}
+	else{
+		return false;
 	}
 }
 
@@ -39,3 +34,6 @@ int player::get_health(){
 	return health;
 }
 
+bool player::player_victory(){
+	cout << "You've escaped!" << endl;
+}
