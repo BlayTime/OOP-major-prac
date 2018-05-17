@@ -4,19 +4,19 @@
 #include <string>
 using namespace std;
 
-int trap::currentID = 0;
+//int trap::currentID = 0;
 
 //default constructor
 trap::trap() : entity(){
 	name = "Trap";
-	health = 1;
-	currentID += 1;
+	health = 2;
+	//currentID += 1;
 }
 
 //With input name constructor
 trap::trap(string InName) : entity(InName){
 	name = InName;
-	health = 1;
+	health = 2;
 	currentID += 1;
 }
 

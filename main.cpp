@@ -1,7 +1,76 @@
 #include <iostream>
 #include <string>
 #include "room.h"
+#include "entity.h"
+//#include "trap.h"
+#include "player.h"
+
 using namespace std;
+
+void inputFunc(int x, int y, room map[][3], player pc){
+
+	char strInput; // wont work because of this
+	
+	cout << "What do you do?" << endl;
+	cin >> strInput;
+
+	// getline(cin , strInput)
+
+	//stops taking input if "stop" is entered
+	if(strInput != 'S'){
+		
+		//if input is valid, direction goes through
+		if(strInput == 'w' || strInput == 'a' || strInput == 's' || strInput == 'd'){
+			//cout << "You went " << strInput << endl;
+			map[x][y].choose_door(strInput, x, y);
+			map[x][y].movement(strInput);
+			
+			map[x][y].enter();
+			
+			if (map[x][y].isTrap == true)
+			{
+				pc.damage();
+				cout << "Your health is at " << pc.get_health() << endl;
+				if (pc.player_death() == true)
+				{
+				return;
+				}
+			}
+				
+				
+	 
+
+			// cout << x << y << endl;
+			if (map[x][y].isExit == true){
+				pc.player_victory();
+				return;
+			}
+			
+
+			inputFunc(x, y, map, pc);
+		}
+
+		//tell player the input is invalid --> ask for new input
+		else if(strInput != 'w' || strInput != 'a' || strInput != 's' || strInput != 'd' ){
+			cout << "You entered " << strInput << endl;
+			cout << "There's a time and a place for everything... but not now" << endl;
+			inputFunc(x, y, map, pc);
+		}
+
+		/*if (strInput == 'x'){
+			room.disarmTrap(trapStats)
+		}*/ //unfinished trap code
+		
+
+
+		//suggested: draw an entity/person on top of the room and a trap on top of them
+		/*void update(entity* e){
+			e.draw()
+		}*/
+	}
+	//if not finished/escaped --> call function again
+
+}
 
 int main(){
 	
@@ -9,85 +78,33 @@ int main(){
 	const int matSize = 3;
 
 	//Initialising map
-	room **map = new room*[matSize];
-	for(int i = 0; i < matSize; i++){
-		map[i] = new room[matSize];
-	}
+	room map[matSize][matSize];
 
 	//Populating the map with room objects
-	for(int x=0; x< matSize; x++){
-		for(int y = 0; y<matSize; y++){
-			map[x][y] = room(x,y,false,false);
-			cout << map[x][y].get_room_numX() << map[x][y].get_room_numY() << endl;
+	for(int y=0; y< matSize; y++){
+		for(int x = 0; x<matSize; x++){
+			map[x][y].create_map(x, y, false, false);
+			//cout << map[x][y].get_room_numX() << map[x][y].get_room_numY() << endl;
 		}
 	}
+	player hero = player(); 
+	
+	int playerLocationX = 0;
+	int playerLocationY = 0;
 
-
-
+	map[1][0].isTrap = true;
+	map[2][2].isExit = true;
+	inputFunc(playerLocationX, playerLocationY, map, hero);
 	//tests
-	map[1][1].playerLocation = true;
-	cout << map[1][1].is_player_in_room(1,1) << endl;
-	cout << map[1][0].is_player_in_room(1,0) << endl;
-	cout << map[2][0].is_player_in_room(2,0) << endl;
-}
+	//map[0][0].playerLocation = true;
+	//cout << map[1][1].is_player_in_room() << endl;
+	//cout << map[1][0].is_player_in_room() << endl;
+	//cout << map[2][0].is_player_in_room() << endl;
+	/*
+	map[playerLocationX][playerLocationY].choose_door('D', playerLocationX, playerLocationY);
+	cout << playerLocationX << playerLocationY << endl;
+	map[playerLocationX][playerLocationY].movement('D');
 
-void room::choose_door(char direction, int x, int y){
-
-		/*if (direction == 'W'){
-			if (room_Y == 0){
-				std::cout << "don't." << std::endl;
-				return;
-			} 
-			else { 
-				matrix[room_X][room_Y].playerLocation = 0;
-				matrix[room_X][room_Y-1].playerLocation = 1;
-				std::cout << "you move up" << std::endl;
-			}
-		}
-		if (direction == 'A'){
-			if (room_X == 0 ){
-				std::cout << "don't." << std::endl;
-				return;
-			}
-			else {
-				matrix[room_X][room_Y].playerLocation = 0;
-				matrix[room_X][room_Y-1].playerLocation = 1;
-				std::cout << "you move left" << std::endl;
-			}
-		}
-		if (direction == 'S'){
-			if (room_Y == 2 ){
-				std::cout << "don't." << std::endl;
-				return;
-			}
-			else {
-				matrix[room_X][room_Y].playerLocation = 0;
-				matrix[room_X][room_Y+1].playerLocation = 1;
-				std::cout << "you move down" << std::endl;
-			}
-		}*/
-		if (direction == 'D'){
-			if (room_X == 2 ){
-				std::cout << "don't." << std::endl;
-				return;
-			}
-			else {
-				playerLocation = 0;
-				x +=1;
-				//std::cout << "you move right" << std::endl;
-			}
-		}
-}
-
-void room::movement(char direction){
-		if (direction == 'D'){
-			if (room_X == 2 ){
-				std::cout << "don't." << std::endl;
-				return;
-			}
-			else {
-				playerLocation = 1;
-				std::cout << "you move right" << std::endl;
-			}
-		}
+	cout << map[1][0].is_player_in_room() << endl;
+	*/
 }
