@@ -1,25 +1,17 @@
+#include <iostream>
 #include "entity.h"
 #include <string>
 using namespace std;
 
 //default constructor
-entity::entity(){
-	name = "???";
+entity::entity()
+{
 	health = 1;
-}
-
-//With input name constructor
-entity::entity(string InName){
-	name = InName;
-	health = 1;
-}
-
-//Returns entity's name
-string entity::get_name(){
-	return name;
 }
 
 //function decreases health of entities
-void entity::damage(){
+void entity::damage()
+{
 	health -= 1;
+	return;
 }

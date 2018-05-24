@@ -4,14 +4,20 @@
 #include "entity.h"
 using namespace std;
 
+class room;
+
 //player is a subclass of entity
 class player: public entity{
+private: 
+	int restcount;
+
 public:
+
 	player();
-	player(string InName);
 	bool player_death();
-	int get_health();
-	bool player_victory();
+	void get_health();
+	void attacked();
+	void rest(room map[][5], int x, int y);
 };
 
 #endif

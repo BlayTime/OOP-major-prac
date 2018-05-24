@@ -7,13 +7,11 @@ using namespace std;
 class entity{
 
 protected:
-	string name;
+	//health for both player and monsters
 	int health;
 
 public:
 	entity();
-	entity(string InName);
-	string get_name();
 	virtual void damage();
 };
 
